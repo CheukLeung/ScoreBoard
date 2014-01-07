@@ -165,7 +165,7 @@
                                    predicateWithFormat:@"(name contains[cd] %@) OR (name like[cd] %@)",
                                    searchText, searchText];
    
-   _searchResults = [_players filteredArrayUsingPredicate:resultPredicate];
+   self.searchResults = [self.players filteredArrayUsingPredicate:resultPredicate];
 }
 
 /*!
@@ -258,7 +258,7 @@
    if (sender.state == UIGestureRecognizerStateBegan){
       if (cell != nil)
       {
-         _lastIndexPath = swipedIndexPath;
+         self.lastIndexPath = swipedIndexPath;
          [self touchesBegan:frontView
                  atLocation:swipeLocation];
          return;
@@ -307,8 +307,8 @@
 -(void)dragsChanged: (UIView *) frontView atLocation : (CGPoint) swipeLocation {
    NSIndexPath *swipedIndexPath = [self.tableView indexPathForRowAtPoint:swipeLocation];
    
-   if (swipedIndexPath != _lastIndexPath){
-      UITableViewCell *lastCell = [self.tableView cellForRowAtIndexPath:_lastIndexPath];
+   if (swipedIndexPath != self.lastIndexPath){
+      UITableViewCell *lastCell = [self.tableView cellForRowAtIndexPath:self.lastIndexPath];
       UIView *lastView = (UIView *) [lastCell viewWithTag:100];
       [self springBack:lastView];
       return;

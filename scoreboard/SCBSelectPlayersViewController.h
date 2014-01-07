@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Player.h"
 
 @interface SCBSelectPlayersViewController : UICollectionViewController
 
+@property NSMutableArray *selectedPlayers;
 @end
