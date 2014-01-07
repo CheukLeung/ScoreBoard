@@ -15,13 +15,22 @@
 		2F83AA2418551B0E006F6CB3 /* SCBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F83AA2318551B0E006F6CB3 /* SCBAppDelegate.m */; };
 		2F83AA2718551B0E006F6CB3 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F83AA2518551B0E006F6CB3 /* Main_iPhone.storyboard */; };
 		2F83AA2A18551B0E006F6CB3 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F83AA2818551B0E006F6CB3 /* Main_iPad.storyboard */; };
-		2F83AA2D18551B0E006F6CB3 /* SCBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F83AA2C18551B0E006F6CB3 /* SCBViewController.m */; };
 		2F83AA2F18551B0E006F6CB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F83AA2E18551B0E006F6CB3 /* Images.xcassets */; };
 		2F83AA3618551B0F006F6CB3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F83AA3518551B0F006F6CB3 /* XCTest.framework */; };
 		2F83AA3718551B0F006F6CB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F83AA1318551B0E006F6CB3 /* Foundation.framework */; };
 		2F83AA3818551B0F006F6CB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F83AA1718551B0E006F6CB3 /* UIKit.framework */; };
 		2F83AA4018551B0F006F6CB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F83AA3E18551B0F006F6CB3 /* InfoPlist.strings */; };
 		2F83AA4218551B0F006F6CB3 /* scoreboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F83AA4118551B0F006F6CB3 /* scoreboardTests.m */; };
+		2FD6C052185B3CE80022C570 /* SCBAddNewPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C051185B3CE80022C570 /* SCBAddNewPlayerViewController.m */; };
+		2FD6C059185C893A0022C570 /* SCBImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C058185C893A0022C570 /* SCBImagePickerViewController.m */; };
+		2FD6C05D185D0F2A0022C570 /* SCBModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C05B185D0F2A0022C570 /* SCBModel.xcdatamodeld */; };
+		2FD6C060185D11690022C570 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C05F185D11690022C570 /* Player.m */; };
+		2FD6C062185D11980022C570 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD6C061185D11980022C570 /* CoreData.framework */; };
+		2FD6C06E185D1EA30022C570 /* SCBPlayerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C06D185D1EA30022C570 /* SCBPlayerTableViewController.m */; };
+		2FD6C0791862E7C10022C570 /* SCBMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C0781862E7C10022C570 /* SCBMainViewController.m */; };
+		2FF5BBFA187C292C006BC885 /* SCBStartNewGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5BBF9187C292C006BC885 /* SCBStartNewGameViewController.m */; };
+		2FF5BBFD187C324C006BC885 /* SCBSelectPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5BBFC187C324C006BC885 /* SCBSelectPlayersViewController.m */; };
+		2FF5BC00187C36EB006BC885 /* Game_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FF5BBFE187C36EB006BC885 /* Game_iPad.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,14 +56,29 @@
 		2F83AA2318551B0E006F6CB3 /* SCBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCBAppDelegate.m; sourceTree = "<group>"; };
 		2F83AA2618551B0E006F6CB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		2F83AA2918551B0E006F6CB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		2F83AA2B18551B0E006F6CB3 /* SCBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCBViewController.h; sourceTree = "<group>"; };
-		2F83AA2C18551B0E006F6CB3 /* SCBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCBViewController.m; sourceTree = "<group>"; };
 		2F83AA2E18551B0E006F6CB3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2F83AA3418551B0F006F6CB3 /* scoreboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = scoreboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F83AA3518551B0F006F6CB3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		2F83AA3D18551B0F006F6CB3 /* scoreboardTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "scoreboardTests-Info.plist"; sourceTree = "<group>"; };
 		2F83AA3F18551B0F006F6CB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2F83AA4118551B0F006F6CB3 /* scoreboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = scoreboardTests.m; sourceTree = "<group>"; };
+		2FD6C050185B3CE80022C570 /* SCBAddNewPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBAddNewPlayerViewController.h; sourceTree = "<group>"; };
+		2FD6C051185B3CE80022C570 /* SCBAddNewPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCBAddNewPlayerViewController.m; sourceTree = "<group>"; };
+		2FD6C057185C893A0022C570 /* SCBImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCBImagePickerViewController.h; path = Generic/SCBImagePickerViewController.h; sourceTree = "<group>"; };
+		2FD6C058185C893A0022C570 /* SCBImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCBImagePickerViewController.m; path = Generic/SCBImagePickerViewController.m; sourceTree = "<group>"; };
+		2FD6C05C185D0F2A0022C570 /* SCBModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SCBModel.xcdatamodel; sourceTree = "<group>"; };
+		2FD6C05E185D11690022C570 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = Resources/Player.h; sourceTree = "<group>"; };
+		2FD6C05F185D11690022C570 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = Resources/Player.m; sourceTree = "<group>"; };
+		2FD6C061185D11980022C570 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2FD6C06C185D1EA30022C570 /* SCBPlayerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBPlayerTableViewController.h; sourceTree = "<group>"; };
+		2FD6C06D185D1EA30022C570 /* SCBPlayerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCBPlayerTableViewController.m; sourceTree = "<group>"; };
+		2FD6C0771862E7C10022C570 /* SCBMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBMainViewController.h; sourceTree = "<group>"; };
+		2FD6C0781862E7C10022C570 /* SCBMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCBMainViewController.m; sourceTree = "<group>"; };
+		2FF5BBF8187C292C006BC885 /* SCBStartNewGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBStartNewGameViewController.h; sourceTree = "<group>"; };
+		2FF5BBF9187C292C006BC885 /* SCBStartNewGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCBStartNewGameViewController.m; sourceTree = "<group>"; };
+		2FF5BBFB187C324C006BC885 /* SCBSelectPlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBSelectPlayersViewController.h; sourceTree = "<group>"; };
+		2FF5BBFC187C324C006BC885 /* SCBSelectPlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCBSelectPlayersViewController.m; sourceTree = "<group>"; };
+		2FF5BBFF187C36EB006BC885 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Game_iPad.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FD6C062185D11980022C570 /* CoreData.framework in Frameworks */,
 				2F83AA1618551B0E006F6CB3 /* CoreGraphics.framework in Frameworks */,
 				2F83AA1818551B0E006F6CB3 /* UIKit.framework in Frameworks */,
 				2F83AA1418551B0E006F6CB3 /* Foundation.framework in Frameworks */,
@@ -103,6 +128,7 @@
 		2F83AA1218551B0E006F6CB3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2FD6C061185D11980022C570 /* CoreData.framework */,
 				2F83AA1318551B0E006F6CB3 /* Foundation.framework */,
 				2F83AA1518551B0E006F6CB3 /* CoreGraphics.framework */,
 				2F83AA1718551B0E006F6CB3 /* UIKit.framework */,
@@ -114,13 +140,24 @@
 		2F83AA1918551B0E006F6CB3 /* scoreboard */ = {
 			isa = PBXGroup;
 			children = (
+				2FD6C06F186195E70022C570 /* Resources */,
 				2F83AA2218551B0E006F6CB3 /* SCBAppDelegate.h */,
 				2F83AA2318551B0E006F6CB3 /* SCBAppDelegate.m */,
 				2F83AA2518551B0E006F6CB3 /* Main_iPhone.storyboard */,
 				2F83AA2818551B0E006F6CB3 /* Main_iPad.storyboard */,
-				2F83AA2B18551B0E006F6CB3 /* SCBViewController.h */,
-				2F83AA2C18551B0E006F6CB3 /* SCBViewController.m */,
+				2FF5BBFE187C36EB006BC885 /* Game_iPad.storyboard */,
+				2FF5BBFB187C324C006BC885 /* SCBSelectPlayersViewController.h */,
+				2FF5BBFC187C324C006BC885 /* SCBSelectPlayersViewController.m */,
+				2FF5BBF8187C292C006BC885 /* SCBStartNewGameViewController.h */,
+				2FF5BBF9187C292C006BC885 /* SCBStartNewGameViewController.m */,
+				2FD6C0771862E7C10022C570 /* SCBMainViewController.h */,
+				2FD6C0781862E7C10022C570 /* SCBMainViewController.m */,
+				2FD6C050185B3CE80022C570 /* SCBAddNewPlayerViewController.h */,
+				2FD6C051185B3CE80022C570 /* SCBAddNewPlayerViewController.m */,
+				2FD6C06C185D1EA30022C570 /* SCBPlayerTableViewController.h */,
+				2FD6C06D185D1EA30022C570 /* SCBPlayerTableViewController.m */,
 				2F83AA2E18551B0E006F6CB3 /* Images.xcassets */,
+				2FD6C05A185C89D50022C570 /* Generic */,
 				2F83AA1A18551B0E006F6CB3 /* Supporting Files */,
 			);
 			path = scoreboard;
@@ -153,6 +190,25 @@
 				2F83AA3E18551B0F006F6CB3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2FD6C05A185C89D50022C570 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				2FD6C057185C893A0022C570 /* SCBImagePickerViewController.h */,
+				2FD6C058185C893A0022C570 /* SCBImagePickerViewController.m */,
+			);
+			name = Generic;
+			sourceTree = "<group>";
+		};
+		2FD6C06F186195E70022C570 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2FD6C05B185D0F2A0022C570 /* SCBModel.xcdatamodeld */,
+				2FD6C05E185D11690022C570 /* Player.h */,
+				2FD6C05F185D11690022C570 /* Player.m */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +291,7 @@
 				2F83AA2A18551B0E006F6CB3 /* Main_iPad.storyboard in Resources */,
 				2F83AA2F18551B0E006F6CB3 /* Images.xcassets in Resources */,
 				2F83AA2718551B0E006F6CB3 /* Main_iPhone.storyboard in Resources */,
+				2FF5BC00187C36EB006BC885 /* Game_iPad.storyboard in Resources */,
 				2F83AA1E18551B0E006F6CB3 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,9 +311,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F83AA2D18551B0E006F6CB3 /* SCBViewController.m in Sources */,
+				2FD6C052185B3CE80022C570 /* SCBAddNewPlayerViewController.m in Sources */,
+				2FD6C059185C893A0022C570 /* SCBImagePickerViewController.m in Sources */,
 				2F83AA2018551B0E006F6CB3 /* main.m in Sources */,
+				2FD6C05D185D0F2A0022C570 /* SCBModel.xcdatamodeld in Sources */,
+				2FD6C06E185D1EA30022C570 /* SCBPlayerTableViewController.m in Sources */,
+				2FD6C0791862E7C10022C570 /* SCBMainViewController.m in Sources */,
+				2FD6C060185D11690022C570 /* Player.m in Sources */,
 				2F83AA2418551B0E006F6CB3 /* SCBAppDelegate.m in Sources */,
+				2FF5BBFD187C324C006BC885 /* SCBSelectPlayersViewController.m in Sources */,
+				2FF5BBFA187C292C006BC885 /* SCBStartNewGameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +373,14 @@
 				2F83AA3F18551B0F006F6CB3 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2FF5BBFE187C36EB006BC885 /* Game_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FF5BBFF187C36EB006BC885 /* Base */,
+			);
+			name = Game_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -475,6 +547,7 @@
 				2F83AA4718551B0F006F6CB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F83AA4818551B0F006F6CB3 /* Build configuration list for PBXNativeTarget "scoreboardTests" */ = {
 			isa = XCConfigurationList;
@@ -483,8 +556,23 @@
 				2F83AA4A18551B0F006F6CB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2FD6C05B185D0F2A0022C570 /* SCBModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2FD6C05C185D0F2A0022C570 /* SCBModel.xcdatamodel */,
+			);
+			currentVersion = 2FD6C05C185D0F2A0022C570 /* SCBModel.xcdatamodel */;
+			name = SCBModel.xcdatamodeld;
+			path = Resources/SCBModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2F83AA0818551B0E006F6CB3 /* Project object */;
 }
