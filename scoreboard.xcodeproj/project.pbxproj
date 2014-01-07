@@ -140,12 +140,10 @@
 		2F83AA1918551B0E006F6CB3 /* scoreboard */ = {
 			isa = PBXGroup;
 			children = (
+				2FF5BC01187C52FD006BC885 /* StoryBoard */,
 				2FD6C06F186195E70022C570 /* Resources */,
 				2F83AA2218551B0E006F6CB3 /* SCBAppDelegate.h */,
 				2F83AA2318551B0E006F6CB3 /* SCBAppDelegate.m */,
-				2F83AA2518551B0E006F6CB3 /* Main_iPhone.storyboard */,
-				2F83AA2818551B0E006F6CB3 /* Main_iPad.storyboard */,
-				2FF5BBFE187C36EB006BC885 /* Game_iPad.storyboard */,
 				2FF5BBFB187C324C006BC885 /* SCBSelectPlayersViewController.h */,
 				2FF5BBFC187C324C006BC885 /* SCBSelectPlayersViewController.m */,
 				2FF5BBF8187C292C006BC885 /* SCBStartNewGameViewController.h */,
@@ -156,7 +154,6 @@
 				2FD6C051185B3CE80022C570 /* SCBAddNewPlayerViewController.m */,
 				2FD6C06C185D1EA30022C570 /* SCBPlayerTableViewController.h */,
 				2FD6C06D185D1EA30022C570 /* SCBPlayerTableViewController.m */,
-				2F83AA2E18551B0E006F6CB3 /* Images.xcassets */,
 				2FD6C05A185C89D50022C570 /* Generic */,
 				2F83AA1A18551B0E006F6CB3 /* Supporting Files */,
 			);
@@ -204,11 +201,22 @@
 		2FD6C06F186195E70022C570 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2F83AA2E18551B0E006F6CB3 /* Images.xcassets */,
 				2FD6C05B185D0F2A0022C570 /* SCBModel.xcdatamodeld */,
 				2FD6C05E185D11690022C570 /* Player.h */,
 				2FD6C05F185D11690022C570 /* Player.m */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		2FF5BC01187C52FD006BC885 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				2F83AA2518551B0E006F6CB3 /* Main_iPhone.storyboard */,
+				2F83AA2818551B0E006F6CB3 /* Main_iPad.storyboard */,
+				2FF5BBFE187C36EB006BC885 /* Game_iPad.storyboard */,
+			);
+			name = StoryBoard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

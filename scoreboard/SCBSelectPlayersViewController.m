@@ -80,10 +80,23 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-   // Determine the selected items by using the indexPath
-   Player *selectedPlayer = [_players objectAtIndex:indexPath.row];
-   // Add the selected item into the array
-   [_selectedPlayers addObject:selectedPlayer];
+   if ([_selectedPlayers count] >= 4)
+   {
+      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Exceeding Players Limit"
+                                                      message:@"A game should always starts with at most 4 players"
+                                                     delegate:nil
+                                            cancelButtonTitle:@"OK"
+                                            otherButtonTitles:nil];
+      [alert show];
+      [self.collectionView deselectItemAtIndexPath: indexPath animated:YES];
+   }
+   else
+   {
+      // Determine the selected items by using the indexPath
+      Player *selectedPlayer = [_players objectAtIndex:indexPath.row];
+      // Add the selected item into the array
+      [_selectedPlayers addObject:selectedPlayer];
+   }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
