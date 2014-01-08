@@ -8,10 +8,12 @@
 
 #import "SCBSelectPlayersViewController.h"
 #import "SCBAppDelegate.h"
+#import "Constants.h"
 
 @interface SCBSelectPlayersViewController ()
 @property NSMutableArray *players;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (readonly) NSInteger MAX_PLAYERS_NUMBER;
 @end
 
 @implementation SCBSelectPlayersViewController
@@ -80,10 +82,11 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-   if ([_selectedPlayers count] >= 4)
+   if ([_selectedPlayers count] >= MaximumNumberOfPlayers)
    {
+      NSString *message = [NSString stringWithFormat:@"A game should always starts with at most %u players", MaximumNumberOfPlayers];
       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Exceeding Players Limit"
-                                                      message:@"A game should always starts with at most 4 players"
+                                                      message:message
                                                      delegate:nil
                                             cancelButtonTitle:@"OK"
                                             otherButtonTitles:nil];
@@ -121,6 +124,5 @@
    _managedObjectContext = appDelegate.managedObjectContext;
    return _managedObjectContext;
 }
-
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "SCBStartNewGameViewController.h"
-
+#import "SCBSelectPlayersViewController.h"
 @interface SCBStartNewGameViewController ()
 
 @end
@@ -34,6 +34,23 @@
    // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Navigation
+- (void) prepareForSegue :(UIStoryboardSegue *)segue sender:(id)sender{
+   if([[segue identifier] isEqualToString:@"startGameSegue"])
+   {
+      gamePanelViewController = (SCBGamePanelViewController *) segue.destinationViewController;
+      gamePanelViewController.players = _players;
+   }
+}
+
+- (IBAction)unwindFromSelectPlayers:(UIStoryboardSegue *)segue
+{
+   SCBSelectPlayersViewController *source = [segue sourceViewController];
+   if (source.selectedPlayers)
+   {
+      _players = source.selectedPlayers;
+   }
+}
 
 
 @end

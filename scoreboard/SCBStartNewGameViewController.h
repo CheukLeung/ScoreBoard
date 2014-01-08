@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SCBGamePanelViewController.h"
 
 @interface SCBStartNewGameViewController : UIViewController
-
+{
+   @public SCBGamePanelViewController *gamePanelViewController;
+}
+@property NSMutableArray *players;
 @end

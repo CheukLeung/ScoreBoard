@@ -10,6 +10,5 @@
 #import "Player.h"
 
 @interface SCBSelectPlayersViewController : UICollectionViewController
-
 @property NSMutableArray *selectedPlayers;
 @end

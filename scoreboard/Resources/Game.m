@@ -1,21 +1,20 @@
 //
-//  Player.m
+//  Game.m
 //  scoreboard
 //
 //  Created by Oscar Leung on 08/01/14.
 //  Copyright (c) 2014 Cheuk Leung. All rights reserved.
 //
 
-#import "Player.h"
 #import "Game.h"
+#import "Player.h"
+#import "Round.h"
 
 
-@implementation Player
+@implementation Game
 
-@dynamic name;
-@dynamic photo;
-@dynamic wins;
+@dynamic date;
 @dynamic rounds;
-@dynamic games;
+@dynamic players;
 
 @end
