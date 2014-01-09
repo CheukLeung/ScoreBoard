@@ -9,6 +9,7 @@
 #import "Constants.h"
 static NSMutableArray *_ElementNames = nil;
 static NSMutableArray *_ElementScores = nil;
+static NSMutableArray *_ScoreGain = nil;
 
 @implementation Constants
 
@@ -70,6 +71,24 @@ NSInteger const MaximumNumberOfPlayers = 6;
    return _ElementScores;
 }
 
++(NSMutableArray *) ScoreGain
+{
+   if (!_ScoreGain)
+   {
+      _ScoreGain = [[NSMutableArray alloc] init];
+      _ScoreGain = [NSMutableArray arrayWithObjects:
+                        [NSNumber numberWithInt:0], // 0
+                        [NSNumber numberWithInt:0], // 1
+                        [NSNumber numberWithInt:0], // 2
+                        [NSNumber numberWithInt:1], // 3
+                        [NSNumber numberWithInt:2], // 4
+                        [NSNumber numberWithInt:4], // 5
+                        [NSNumber numberWithInt:8], // 6
+                        [NSNumber numberWithInt:16], // 7
+                        nil];
+   }
+   return _ScoreGain;
+}
 
 
 @end

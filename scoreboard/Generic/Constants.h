@@ -13,4 +13,5 @@
 FOUNDATION_EXPORT NSInteger const MaximumNumberOfPlayers;
 +(NSMutableArray*) ElementNames;
 +(NSMutableArray*) ElementScores;
++(NSMutableArray*) ScoreGain;
 @end

@@ -263,9 +263,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJn-kl-4ic">
-                                <rect key="frame" x="758" y="136" width="83" height="48"/>
+                                <rect key="frame" x="740" y="96" width="134" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$ 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oa1-X2-UtU">
+                                <rect key="frame" x="740" y="175" width="134" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -311,6 +317,7 @@
                     <navigationItem key="navigationItem" id="CVb-lz-Lng"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="gainLabel" destination="Oa1-X2-UtU" id="du5-cz-yfy"/>
                         <outlet property="scoreLabel" destination="wJn-kl-4ic" id="dV9-sE-vgx"/>
                     </connections>
                 </viewController>

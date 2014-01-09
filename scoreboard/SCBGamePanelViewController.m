@@ -15,7 +15,9 @@
 
 @interface SCBGamePanelViewController ()
 @property (nonatomic)  NSInteger nextScore;
+@property (nonatomic)  NSInteger nextGain;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *gainLabel;
 
 @end
 
@@ -82,6 +84,14 @@
    return tempScore;
 }
 
+- (NSInteger) resolveGainFromScore: (NSInteger) score
+{
+   if (score > [[Constants ScoreGain] count]){
+      return [[[Constants ScoreGain] lastObject] integerValue];
+   }
+   return [[[Constants ScoreGain] objectAtIndex:score] integerValue];
+}
+
 #pragma mark - Setters
 - (void) setNextScore: (NSInteger) nextScore
 {
@@ -89,11 +99,18 @@
    _nextScore = nextScore;
 }
 
+- (void) setNextGain: (NSInteger) nextGain
+{
+   [self.gainLabel setText:[NSString stringWithFormat:@"$ %d", nextGain]];
+   _nextGain = nextGain;
+}
+
 #pragma mark - SCBGamePanelProtocol methods
 - (void) updateScorePicking: (NSInteger) fulfilled
 {
    NSLog(@"fulfilled --- %ld", (long)fulfilled);
    self.nextScore = [self resolveScoreFromFulfilledElements:fulfilled];
+   self.nextGain = [self resolveGainFromScore:_nextScore];
 }
 
 @end
