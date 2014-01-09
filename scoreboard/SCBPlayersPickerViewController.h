@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SCBGamePanelViewController.h"
 
-@interface SCBPlayersPickerViewController : UIViewController
-
+@interface SCBPlayersPickerViewController : UICollectionViewController
+@property NSMutableArray *selectedPlayers;
+@property NSMutableArray *players;
 @end

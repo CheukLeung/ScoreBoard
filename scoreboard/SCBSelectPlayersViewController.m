@@ -9,11 +9,12 @@
 #import "SCBSelectPlayersViewController.h"
 #import "SCBAppDelegate.h"
 #import "Constants.h"
+#import "Utility.h"
+#import "Player.h"
 
 @interface SCBSelectPlayersViewController ()
 @property NSMutableArray *players;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (readonly) NSInteger MAX_PLAYERS_NUMBER;
 @end
 
 @implementation SCBSelectPlayersViewController
@@ -29,10 +30,12 @@
 
 - (void)viewDidLoad
 {
+   NSLog(@"hihi");
    [super viewDidLoad];
    [self loadInitialData];
    self.collectionView.allowsMultipleSelection = YES;
    _selectedPlayers = [NSMutableArray array];
+   NSLog(@"%lu", (unsigned long)[_players count]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,7 +78,10 @@
 	nameLabel.text = [playerItem name];
    [photoImage setImage:[UIImage imageWithData:[playerItem photo]]];
    
-   cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"selectedBackground"]];
+   UIView *bgView = [[UIView alloc] init];
+   [bgView setBackgroundColor:[Utility getColorFromString:[playerItem name]]];
+   
+   [cell setSelectedBackgroundView:bgView];
    return cell;
 
 }
@@ -84,7 +90,7 @@
 {
    if ([_selectedPlayers count] >= MaximumNumberOfPlayers)
    {
-      NSString *message = [NSString stringWithFormat:@"A game should always starts with at most %u players", MaximumNumberOfPlayers];
+      NSString *message = [NSString stringWithFormat:@"A game should always starts with at most %ld players", (long)MaximumNumberOfPlayers];
       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Exceeding Players Limit"
                                                       message:message
                                                      delegate:nil
