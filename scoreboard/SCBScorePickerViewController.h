@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SCBScorePickerViewController : UICollectionViewController
+#import "SCBGamePanelProtocol.h"
+@interface SCBScorePickerViewController : UICollectionViewController 
+{
+   id<SCBGamePanelProtocol> delegate;
+}
 @property NSInteger fulfilledElements;
+@property (readwrite, assign) id <SCBGamePanelProtocol> delegate;
 @end

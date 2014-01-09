@@ -14,11 +14,12 @@
 #import "Constants.h"
 
 @interface SCBGamePanelViewController ()
+@property (nonatomic)  NSInteger nextScore;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 
 @end
 
 @implementation SCBGamePanelViewController
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -41,7 +42,6 @@
       [playerLable setText:[playerItem name]];
       [playerImage setImage:[UIImage imageWithData:[playerItem photo]]];
       [playerScore setText:@"0"];
-      NSLog(@"id %@",[playerItem objectID]);
    }
    
    for (NSUInteger i = [_players count]; i < MaximumNumberOfPlayers; i++)
@@ -58,7 +58,9 @@
    child.players=self.players;
    child = [self.childViewControllers objectAtIndex:3];
    child.players=_players;
-      
+   SCBScorePickerViewController *scorePickerChild = [self.childViewControllers objectAtIndex:0];
+   scorePickerChild.delegate = self;
+   
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,14 +69,31 @@
    // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Navigation
-- (IBAction)unwindFromUpdatedPicking:(UIStoryboardSegue *)segue
+- (NSInteger) resolveScoreFromFulfilledElements: (NSInteger) fulfilled
 {
-   SCBScorePickerViewController *source = [segue sourceViewController];
-   if (source.fulfilledElements)
+   NSInteger tempScore = 0;
+   for (int i = 0; i < [[Constants ElementNames] count]; i++ )
    {
-      NSLog(@"fulfilled --- %ld", (long)source.fulfilledElements);
+      int scoreIndex = 0x01 & (fulfilled >> i);
+      if (scoreIndex){
+         tempScore += [[[Constants ElementScores] objectAtIndex:i] integerValue];
+      }
    }
+   return tempScore;
+}
+
+#pragma mark - Setters
+- (void) setNextScore: (NSInteger) nextScore
+{
+   [self.scoreLabel setText:[NSString stringWithFormat:@"%d", nextScore]];
+   _nextScore = nextScore;
+}
+
+#pragma mark - SCBGamePanelProtocol methods
+- (void) updateScorePicking: (NSInteger) fulfilled
+{
+   NSLog(@"fulfilled --- %ld", (long)fulfilled);
+   self.nextScore = [self resolveScoreFromFulfilledElements:fulfilled];
 }
 
 @end

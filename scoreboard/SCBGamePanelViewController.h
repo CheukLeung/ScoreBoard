@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Protocols/SCBGamePanelProtocol.h"
 
-@interface SCBGamePanelViewController : UIViewController
+@interface SCBGamePanelViewController : UIViewController <SCBGamePanelProtocol>
 @property (nonatomic, strong) NSMutableArray *players;
 @end

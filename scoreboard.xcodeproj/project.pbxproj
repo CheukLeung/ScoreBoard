@@ -100,6 +100,7 @@
 		2FF5BBFF187C36EB006BC885 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Game_iPad.storyboard; sourceTree = "<group>"; };
 		2FFB3779187E9E05000340E5 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utility.h; path = Generic/Utility.h; sourceTree = "<group>"; };
 		2FFB377A187E9E05000340E5 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utility.m; path = Generic/Utility.m; sourceTree = "<group>"; };
+		2FFB377F187EB3D2000340E5 /* SCBGamePanelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SCBGamePanelProtocol.h; path = Protocols/SCBGamePanelProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +164,7 @@
 			children = (
 				2FF5BC01187C52FD006BC885 /* StoryBoard */,
 				2FD6C06F186195E70022C570 /* Resources */,
+				2FFB377E187EB245000340E5 /* Protocol */,
 				2F83AA2218551B0E006F6CB3 /* SCBAppDelegate.h */,
 				2F83AA2318551B0E006F6CB3 /* SCBAppDelegate.m */,
 				2F968454187D9AC9007EF464 /* SCBScorePickerViewController.h */,
@@ -252,6 +254,14 @@
 				2FF5BBFE187C36EB006BC885 /* Game_iPad.storyboard */,
 			);
 			name = StoryBoard;
+			sourceTree = "<group>";
+		};
+		2FFB377E187EB245000340E5 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2FFB377F187EB3D2000340E5 /* SCBGamePanelProtocol.h */,
+			);
+			name = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -8,12 +8,14 @@
 
 #import "SCBScorePickerViewController.h"
 #import "Utility.h"
+#import "Constants.h"
 
 @interface SCBScorePickerViewController ()
 @property NSMutableArray *elements;
 @end
 
 @implementation SCBScorePickerViewController
+@synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,23 +41,10 @@
 
 - (void)loadElements
 {
-   _elements = [NSMutableArray array];
-   [_elements addObject:@"小三元"];
-   [_elements addObject:@"大四喜"];
-   [_elements addObject:@"平糊"];
-   [_elements addObject:@"對對糊"];
-   [_elements addObject:@"清一色"];
-   [_elements addObject:@"混一色"];
-   [_elements addObject:@"正花"];
-   [_elements addObject:@"正花"];
-   [_elements addObject:@"一台花"];
-   [_elements addObject:@"花糊"];
-   [_elements addObject:@"十三么"];
-   [_elements addObject:@"槓上自摸"];
-   [_elements addObject:@"大三元"];
-   [_elements addObject:@"小四喜"];
-   [_elements addObject:@"海底撈月"];
-   [_elements addObject:@"天糊"];
+   _elements = [NSMutableArray array];;
+   for (int i = 0; i < [[Constants ElementNames] count]; i++){
+      [_elements addObject:[[Constants ElementNames] objectAtIndex:i]];
+   }
 }
 
 #pragma mark - Collection view data source
@@ -87,12 +76,14 @@
 {
    _fulfilledElements += pow(2, indexPath.row);
    NSLog(@"fulfilled: %ld", (long)_fulfilledElements);
+   [self.delegate updateScorePicking:_fulfilledElements];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
    _fulfilledElements -= pow(2, indexPath.row);
    NSLog(@"fulfilled: %ld", (long)_fulfilledElements);
+   [self.delegate updateScorePicking:_fulfilledElements];
 }
 
 #pragma mark - Navigation

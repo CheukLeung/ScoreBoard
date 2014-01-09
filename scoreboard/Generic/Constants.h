@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Constants : NSObject
-FOUNDATION_EXPORT NSInteger const MaximumNumberOfPlayers;
 
+FOUNDATION_EXPORT NSInteger const MaximumNumberOfPlayers;
++(NSMutableArray*) ElementNames;
++(NSMutableArray*) ElementScores;
 @end

@@ -75,7 +75,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="bnw-e8-grU" kind="embed" id="M91-hF-6Ka"/>
+                                    <segue destination="bnw-e8-grU" kind="embed" identifier="" id="M91-hF-6Ka"/>
                                 </connections>
                             </containerView>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wuk-Yx-WI0">
@@ -262,6 +262,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJn-kl-4ic">
+                                <rect key="frame" x="758" y="136" width="83" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -302,11 +308,15 @@
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <navigationItem key="navigationItem" id="CVb-lz-Lng"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="scoreLabel" destination="wJn-kl-4ic" id="dV9-sE-vgx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3L2-0q-MXv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1023" y="186"/>
+            <point key="canvasLocation" x="1035" y="130"/>
         </scene>
         <!--Players Picker View Controller-->
         <scene sceneID="1Ei-pF-WGk">
@@ -355,7 +365,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cjy-sJ-DLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2308" y="750"/>
+            <point key="canvasLocation" x="2286" y="514"/>
         </scene>
         <!--Players Picker View Controller-->
         <scene sceneID="IiE-1t-O6W">
@@ -404,7 +414,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G88-i1-vKS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2308" y="460"/>
+            <point key="canvasLocation" x="2286" y="252"/>
         </scene>
         <!--Score Picker View Controller-->
         <scene sceneID="MEs-S7-JmK">
@@ -448,7 +458,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Uf-Kz-7cn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2308" y="166"/>
+            <point key="canvasLocation" x="2286" y="-98"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="FXZ-ja-mKp">
@@ -559,7 +569,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IUI-58-EMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2308" y="1032"/>
+            <point key="canvasLocation" x="2286" y="760"/>
         </scene>
         <!--Start New Game View Controller - Start a new game-->
         <scene sceneID="Idw-Uu-9JM">
@@ -580,7 +590,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="PkZ-y6-P8E" kind="modal" identifier="startGameSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="WOj-WA-vHh"/>
+                                    <segue destination="PkZ-y6-P8E" kind="modal" identifier="startGameSegue" modalPresentationStyle="fullScreen" id="TC7-L0-QLO"/>
                                 </connections>
                             </button>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jIO-4d-X1I">
