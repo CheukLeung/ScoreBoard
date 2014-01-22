@@ -274,6 +274,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="46"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2X9-mh-lQ8">
+                                <rect key="frame" x="882" y="105" width="122" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearButtonAction:" destination="PkZ-y6-P8E" eventType="touchUpInside" id="EAX-Hd-WRp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWW-am-gza">
+                                <rect key="frame" x="882" y="184" width="122" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Confirm">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmButtonAction:" destination="PkZ-y6-P8E" eventType="touchUpInside" id="WhK-LP-3An"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -328,7 +350,7 @@
         <!--Players Picker View Controller-->
         <scene sceneID="1Ei-pF-WGk">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="Dfz-qg-Lp9" customClass="SCBPlayersPickerViewController" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="LosersPicker" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dfz-qg-Lp9" customClass="SCBPlayersPickerViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="nns-Wj-mmQ">
                         <rect key="frame" x="0.0" y="0.0" width="183" height="127"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -377,7 +399,7 @@
         <!--Players Picker View Controller-->
         <scene sceneID="IiE-1t-O6W">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="Lmd-4v-zAr" customClass="SCBPlayersPickerViewController" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="WinnersPicker" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Lmd-4v-zAr" customClass="SCBPlayersPickerViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="HAF-jm-rJr">
                         <rect key="frame" x="0.0" y="0.0" width="183" height="127"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

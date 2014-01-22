@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SCBGamePanelViewController.h"
+#import "SCBGamePanelProtocol.h"
 
 @interface SCBPlayersPickerViewController : UICollectionViewController
+{
+   id<SCBGamePanelProtocol> delegate;
+}
+
+@property (readwrite, assign) id <SCBGamePanelProtocol> delegate;
 @property NSMutableArray *selectedPlayers;
 @property NSMutableArray *players;
+-(void) clearSelection;
 @end

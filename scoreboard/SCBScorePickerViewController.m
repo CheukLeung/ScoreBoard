@@ -47,6 +47,17 @@
    }
 }
 
+-(void) clearSelection
+{
+   _fulfilledElements = 0;
+   NSArray *selectedItemIndexPath = [[self collectionView] indexPathsForSelectedItems];
+   for (int i = 0; i < [selectedItemIndexPath count]; i++)
+   {
+      [[self collectionView] deselectItemAtIndexPath:[selectedItemIndexPath objectAtIndex:i]
+                                            animated:YES];
+   }
+}
+
 #pragma mark - Collection view data source
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
    return 1;

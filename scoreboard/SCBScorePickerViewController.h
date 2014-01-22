@@ -14,4 +14,5 @@
 }
 @property NSInteger fulfilledElements;
 @property (readwrite, assign) id <SCBGamePanelProtocol> delegate;
+-(void) clearSelection;
 @end

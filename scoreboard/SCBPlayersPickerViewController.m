@@ -13,7 +13,8 @@
 @end
 
 @implementation SCBPlayersPickerViewController
-@synthesize  selectedPlayers = _selectedPlayers;
+@synthesize delegate = _delegate;
+@synthesize selectedPlayers = _selectedPlayers;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -38,12 +39,25 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) clearSelection
+{
+   [_selectedPlayers removeAllObjects];
+   NSArray *selectedItemIndexPath = [[self collectionView] indexPathsForSelectedItems];
+   for (int i = 0; i < [selectedItemIndexPath count]; i++)
+   {
+      [[self collectionView] deselectItemAtIndexPath:[selectedItemIndexPath objectAtIndex:i]
+                                            animated:YES];
+   }
+}
+
 #pragma mark - Collection view data source
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
    return 1;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section
+{
    return [self.players count];
 }
 
@@ -77,6 +91,15 @@
    Player *selectedPlayer = [_players objectAtIndex:indexPath.row];
    // Add the selected item into the array
    [_selectedPlayers addObject:selectedPlayer];
+   if ([[self restorationIdentifier] isEqual: @"WinnersPicker"])
+   {
+      [self.delegate updateWinners:_selectedPlayers];
+   }
+   else if ([[self restorationIdentifier] isEqual: @"LosersPicker"])
+   {
+      [self.delegate updateLosers:_selectedPlayers];
+   }
+
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -85,6 +108,14 @@
    Player *selectedPlayer = [_players objectAtIndex:indexPath.row];
    // Add the selected item into the array
    [_selectedPlayers removeObject:selectedPlayer];
+   if ([[self restorationIdentifier] isEqual: @"WinnersPicker"])
+   {
+      [self.delegate updateWinners:_selectedPlayers];
+   }
+   else if ([[self restorationIdentifier] isEqual: @"LosersPicker"])
+   {
+      [self.delegate updateLosers:_selectedPlayers];
+   }
 }
 
 @end

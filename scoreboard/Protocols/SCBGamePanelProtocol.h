@@ -10,5 +10,7 @@
 
 @protocol SCBGamePanelProtocol <NSObject>
 - (void) updateScorePicking: (NSInteger) fulfilled;
+- (void) updateWinners: (NSMutableArray *) winners;
+- (void) updateLosers: (NSMutableArray *) losers;
 
 @end
