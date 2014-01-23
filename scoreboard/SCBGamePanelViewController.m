@@ -10,8 +10,10 @@
 #import "SCBSelectPlayersViewController.h"
 #import "SCBPlayersPickerViewController.h"
 #import "SCBScorePickerViewController.h"
+#import "SCBRoundTableViewController.h"
 #import "Player.h"
 #import "Round.h"
+
 
 #import "Constants.h"
 #import "SCBAppDelegate.h"
@@ -26,9 +28,11 @@
 @property NSMutableArray *nextWinners;
 @property NSMutableArray *nextLosers;
 
+
 @property SCBPlayersPickerViewController *winnersViewController;
 @property SCBPlayersPickerViewController *losersViewController;
 @property SCBScorePickerViewController *scorePickerViewController;
+@property SCBRoundTableViewController *roundTableViewController;
 
 @end
 
@@ -47,17 +51,21 @@
    [super viewDidLoad];
    NSLog(@"Number of players = %lu", (unsigned long)[_players count]);
    [self setDefaultView];
-   
+   if (!_thisGame)
+   {
+      [self addGameEntry];
+   }
    _scorePickerViewController = [self.childViewControllers objectAtIndex:0];
+   _roundTableViewController = [self.childViewControllers objectAtIndex:1];
    _winnersViewController = [self.childViewControllers objectAtIndex:2];
    _losersViewController = [self.childViewControllers objectAtIndex:3];
-
    _scorePickerViewController.delegate = self;
    _winnersViewController.delegate = self;
    _losersViewController.delegate = self;
    
    _winnersViewController.players=_players;
    _losersViewController.players=_players;
+   _roundTableViewController.thisGame = _thisGame;
 }
 
 - (void) setDefaultView
@@ -167,6 +175,29 @@
    return _managedObjectContext;
 }
 
+- (void) addGameEntry
+{
+   _thisGame = [NSEntityDescription insertNewObjectForEntityForName:@"Game"
+                                             inManagedObjectContext:self.managedObjectContext];
+   _thisGame.date = [NSDate date];
+   _thisGame.player0 = [NSNumber numberWithInt:0];
+   _thisGame.player1 = [NSNumber numberWithInt:0];
+   _thisGame.player2 = [NSNumber numberWithInt:0];
+   _thisGame.player3 = [NSNumber numberWithInt:0];
+   _thisGame.player4 = [NSNumber numberWithInt:0];
+   _thisGame.player5 = [NSNumber numberWithInt:0];
+   _thisGame.rounds = [[NSOrderedSet alloc] init];
+   _thisGame.players = [NSOrderedSet orderedSetWithArray:_players];
+   
+   
+   NSError * error;
+   if (![self.managedObjectContext save:&error])
+   {
+      NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+      return;
+   }
+}
+
 - (void) addRoundWithGain: (NSInteger) nextGain
                   winners: (NSMutableArray *) nextWinners
                    losers: (NSMutableArray *) nextLosers
@@ -196,14 +227,62 @@
    newEntry.player5 = [NSNumber numberWithInteger:[self getGainAt: 5 winners:nextWinners losers:nextLosers gain:nextGain]];
    newEntry.roundData = [NSNumber numberWithInteger:nextElements];
    
-   [self clearButtonAction: self];
-   /*
+   newEntry.game = _thisGame;
+   _thisGame.player0 = [NSNumber numberWithInt:[_thisGame.player0 integerValue] + [newEntry.player0 integerValue]];
+   _thisGame.player1 = [NSNumber numberWithInt:[_thisGame.player1 integerValue] + [newEntry.player1 integerValue]];
+   _thisGame.player2 = [NSNumber numberWithInt:[_thisGame.player2 integerValue] + [newEntry.player2 integerValue]];
+   _thisGame.player3 = [NSNumber numberWithInt:[_thisGame.player3 integerValue] + [newEntry.player3 integerValue]];
+   _thisGame.player4 = [NSNumber numberWithInt:[_thisGame.player4 integerValue] + [newEntry.player4 integerValue]];
+   _thisGame.player5 = [NSNumber numberWithInt:[_thisGame.player5 integerValue] + [newEntry.player5 integerValue]];
+   NSMutableOrderedSet *currentRounds = [NSMutableOrderedSet orderedSetWithOrderedSet:_thisGame.rounds];
+   [currentRounds addObject:newEntry];
+   _thisGame.rounds = [NSOrderedSet orderedSetWithOrderedSet:currentRounds];
+   
    NSError * error;
-   if (![self.managedObjectContext save:&error]) {
+   if (![self.managedObjectContext save:&error])
+   {
       NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
       return;
    }
-   */
+   NSLog(@"%d round %d players", [_thisGame.rounds count], [_thisGame.players count]);
+
+   NSMutableArray *playerArray = [[NSMutableArray alloc] init];
+   [playerArray addObject:_thisGame.player0];
+   [playerArray addObject:_thisGame.player1];
+   [playerArray addObject:_thisGame.player2];
+   [playerArray addObject:_thisGame.player3];
+   [playerArray addObject:_thisGame.player4];
+   [playerArray addObject:_thisGame.player5];
+   
+   for (int i = 0; i < [_players count]; i++)
+   {
+      UILabel *playerLabel = (UILabel *)[self.view viewWithTag:300 + i];
+      NSInteger gain = [[playerArray objectAtIndex:i] integerValue];
+      [playerLabel setText:[NSString stringWithFormat:@"%ld", (long) gain]];
+      if (gain < 0)
+      {
+         playerLabel.textColor = [UIColor redColor];
+      }
+      else if (gain == 0)
+      {
+         playerLabel.textColor = [UIColor blackColor];
+      }
+      else
+      {
+         playerLabel.textColor = [UIColor blueColor];
+      }
+   }
+   
+   for (int i = [_players count]; i < MaximumNumberOfPlayers; i++)
+   {
+      NSLog(@"%d", i);
+      UILabel *playerLabel = (UILabel *)[self.view viewWithTag:400 + i];
+      [playerLabel setText:@""];
+   }
+   
+   [_roundTableViewController.tableView reloadData];
+   [self clearButtonAction: self];
+
 }
 
 #pragma mark - Setters

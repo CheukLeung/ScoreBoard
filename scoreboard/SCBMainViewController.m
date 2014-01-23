@@ -28,7 +28,7 @@
 }
 
 - (IBAction)startGameBtn:(id)sender {
-   UIViewController *gameStoryBoardViewController = [[UIStoryboard storyboardWithName:@"Game_iPad" bundle:nil] instantiateInitialViewController];
+   UIViewController *gameStoryBoardViewController = [[UIStoryboard storyboardWithName:@"NewGame_iPad" bundle:nil] instantiateInitialViewController];
    [self.navigationController pushViewController:gameStoryBoardViewController animated:YES];
 }
 

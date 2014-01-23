@@ -489,17 +489,17 @@
             </objects>
             <point key="canvasLocation" x="2286" y="-98"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Round Table View Controller-->
         <scene sceneID="FXZ-ja-mKp">
             <objects>
-                <tableViewController id="Kmo-iP-KPz" sceneMemberID="viewController">
+                <tableViewController id="Kmo-iP-KPz" customClass="SCBRoundTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="26" sectionHeaderHeight="22" sectionFooterHeight="22" id="0AE-Wt-fWd">
                         <rect key="frame" x="0.0" y="0.0" width="500" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="26" id="veJ-a8-RSk">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RoundCell" rowHeight="26" id="veJ-a8-RSk">
                                 <rect key="frame" x="0.0" y="22" width="500" height="26"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="veJ-a8-RSk" id="lep-SP-XKu">

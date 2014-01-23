@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2F61F1C4187C586D007A5BA8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F61F1C3187C586D007A5BA8 /* Constants.m */; };
+		2F625A0C1890122100C98DF3 /* SCBRoundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F625A0B1890122100C98DF3 /* SCBRoundTableViewController.m */; };
+		2F625A0F189022EB00C98DF3 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F625A0E189022EB00C98DF3 /* Game.m */; };
 		2F83AA1418551B0E006F6CB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F83AA1318551B0E006F6CB3 /* Foundation.framework */; };
 		2F83AA1618551B0E006F6CB3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F83AA1518551B0E006F6CB3 /* CoreGraphics.framework */; };
 		2F83AA1818551B0E006F6CB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F83AA1718551B0E006F6CB3 /* UIKit.framework */; };
@@ -24,7 +26,6 @@
 		2F83AA4218551B0F006F6CB3 /* scoreboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F83AA4118551B0F006F6CB3 /* scoreboardTests.m */; };
 		2F96843E187D3F04007EF464 /* SCBGamePanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F96843D187D3F04007EF464 /* SCBGamePanelViewController.m */; };
 		2F968444187D7C58007EF464 /* Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F968443187D7C58007EF464 /* Round.m */; };
-		2F968447187D7C58007EF464 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F968446187D7C58007EF464 /* Game.m */; };
 		2F96844A187D7C58007EF464 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F968449187D7C58007EF464 /* Player.m */; };
 		2F96844D187D7E0F007EF464 /* SCBPlayersPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F96844C187D7E0F007EF464 /* SCBPlayersPickerViewController.m */; };
 		2F968456187D9AC9007EF464 /* SCBScorePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F968455187D9AC9007EF464 /* SCBScorePickerViewController.m */; };
@@ -36,7 +37,7 @@
 		2FD6C0791862E7C10022C570 /* SCBMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6C0781862E7C10022C570 /* SCBMainViewController.m */; };
 		2FF5BBFA187C292C006BC885 /* SCBStartNewGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5BBF9187C292C006BC885 /* SCBStartNewGameViewController.m */; };
 		2FF5BBFD187C324C006BC885 /* SCBSelectPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5BBFC187C324C006BC885 /* SCBSelectPlayersViewController.m */; };
-		2FF5BC00187C36EB006BC885 /* Game_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FF5BBFE187C36EB006BC885 /* Game_iPad.storyboard */; };
+		2FF5BC00187C36EB006BC885 /* NewGame_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FF5BBFE187C36EB006BC885 /* NewGame_iPad.storyboard */; };
 		2FFB377B187E9E05000340E5 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB377A187E9E05000340E5 /* Utility.m */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,10 @@
 /* Begin PBXFileReference section */
 		2F61F1C2187C586D007A5BA8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Generic/Constants.h; sourceTree = "<group>"; };
 		2F61F1C3187C586D007A5BA8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = Generic/Constants.m; sourceTree = "<group>"; };
+		2F625A0A1890122100C98DF3 /* SCBRoundTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBRoundTableViewController.h; sourceTree = "<group>"; };
+		2F625A0B1890122100C98DF3 /* SCBRoundTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCBRoundTableViewController.m; sourceTree = "<group>"; };
+		2F625A0D189022EB00C98DF3 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = Resources/Game.h; sourceTree = "<group>"; };
+		2F625A0E189022EB00C98DF3 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = Resources/Game.m; sourceTree = "<group>"; };
 		2F83AA1018551B0E006F6CB3 /* scoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scoreboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F83AA1318551B0E006F6CB3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2F83AA1518551B0E006F6CB3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -75,8 +80,6 @@
 		2F96843D187D3F04007EF464 /* SCBGamePanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCBGamePanelViewController.m; sourceTree = "<group>"; };
 		2F968442187D7C58007EF464 /* Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Round.h; path = Resources/Round.h; sourceTree = "<group>"; };
 		2F968443187D7C58007EF464 /* Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Round.m; path = Resources/Round.m; sourceTree = "<group>"; };
-		2F968445187D7C58007EF464 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = Resources/Game.h; sourceTree = "<group>"; };
-		2F968446187D7C58007EF464 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = Resources/Game.m; sourceTree = "<group>"; };
 		2F968448187D7C58007EF464 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = Resources/Player.h; sourceTree = "<group>"; };
 		2F968449187D7C58007EF464 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = Resources/Player.m; sourceTree = "<group>"; };
 		2F96844B187D7E0F007EF464 /* SCBPlayersPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBPlayersPickerViewController.h; sourceTree = "<group>"; };
@@ -97,7 +100,7 @@
 		2FF5BBF9187C292C006BC885 /* SCBStartNewGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCBStartNewGameViewController.m; sourceTree = "<group>"; };
 		2FF5BBFB187C324C006BC885 /* SCBSelectPlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBSelectPlayersViewController.h; sourceTree = "<group>"; };
 		2FF5BBFC187C324C006BC885 /* SCBSelectPlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCBSelectPlayersViewController.m; sourceTree = "<group>"; };
-		2FF5BBFF187C36EB006BC885 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Game_iPad.storyboard; sourceTree = "<group>"; };
+		2FF5BBFF187C36EB006BC885 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NewGame_iPad.storyboard; sourceTree = "<group>"; };
 		2FFB3779187E9E05000340E5 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utility.h; path = Generic/Utility.h; sourceTree = "<group>"; };
 		2FFB377A187E9E05000340E5 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utility.m; path = Generic/Utility.m; sourceTree = "<group>"; };
 		2FFB377F187EB3D2000340E5 /* SCBGamePanelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SCBGamePanelProtocol.h; path = Protocols/SCBGamePanelProtocol.h; sourceTree = "<group>"; };
@@ -167,6 +170,8 @@
 				2FFB377E187EB245000340E5 /* Protocol */,
 				2F83AA2218551B0E006F6CB3 /* SCBAppDelegate.h */,
 				2F83AA2318551B0E006F6CB3 /* SCBAppDelegate.m */,
+				2F625A0A1890122100C98DF3 /* SCBRoundTableViewController.h */,
+				2F625A0B1890122100C98DF3 /* SCBRoundTableViewController.m */,
 				2F968454187D9AC9007EF464 /* SCBScorePickerViewController.h */,
 				2F968455187D9AC9007EF464 /* SCBScorePickerViewController.m */,
 				2F96844B187D7E0F007EF464 /* SCBPlayersPickerViewController.h */,
@@ -234,10 +239,10 @@
 		2FD6C06F186195E70022C570 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2F625A0D189022EB00C98DF3 /* Game.h */,
+				2F625A0E189022EB00C98DF3 /* Game.m */,
 				2F968448187D7C58007EF464 /* Player.h */,
 				2F968449187D7C58007EF464 /* Player.m */,
-				2F968445187D7C58007EF464 /* Game.h */,
-				2F968446187D7C58007EF464 /* Game.m */,
 				2F968442187D7C58007EF464 /* Round.h */,
 				2F968443187D7C58007EF464 /* Round.m */,
 				2F83AA2E18551B0E006F6CB3 /* Images.xcassets */,
@@ -251,7 +256,7 @@
 			children = (
 				2F83AA2518551B0E006F6CB3 /* Main_iPhone.storyboard */,
 				2F83AA2818551B0E006F6CB3 /* Main_iPad.storyboard */,
-				2FF5BBFE187C36EB006BC885 /* Game_iPad.storyboard */,
+				2FF5BBFE187C36EB006BC885 /* NewGame_iPad.storyboard */,
 			);
 			name = StoryBoard;
 			sourceTree = "<group>";
@@ -344,7 +349,7 @@
 				2F83AA2A18551B0E006F6CB3 /* Main_iPad.storyboard in Resources */,
 				2F83AA2F18551B0E006F6CB3 /* Images.xcassets in Resources */,
 				2F83AA2718551B0E006F6CB3 /* Main_iPhone.storyboard in Resources */,
-				2FF5BC00187C36EB006BC885 /* Game_iPad.storyboard in Resources */,
+				2FF5BC00187C36EB006BC885 /* NewGame_iPad.storyboard in Resources */,
 				2F83AA1E18551B0E006F6CB3 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,7 +370,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F96844A187D7C58007EF464 /* Player.m in Sources */,
-				2F968447187D7C58007EF464 /* Game.m in Sources */,
 				2F61F1C4187C586D007A5BA8 /* Constants.m in Sources */,
 				2FD6C052185B3CE80022C570 /* SCBAddNewPlayerViewController.m in Sources */,
 				2FD6C059185C893A0022C570 /* SCBImagePickerViewController.m in Sources */,
@@ -374,11 +378,13 @@
 				2FD6C05D185D0F2A0022C570 /* SCBModel.xcdatamodeld in Sources */,
 				2FFB377B187E9E05000340E5 /* Utility.m in Sources */,
 				2FD6C06E185D1EA30022C570 /* SCBPlayerTableViewController.m in Sources */,
+				2F625A0F189022EB00C98DF3 /* Game.m in Sources */,
 				2FD6C0791862E7C10022C570 /* SCBMainViewController.m in Sources */,
 				2F968456187D9AC9007EF464 /* SCBScorePickerViewController.m in Sources */,
 				2F83AA2418551B0E006F6CB3 /* SCBAppDelegate.m in Sources */,
 				2FF5BBFD187C324C006BC885 /* SCBSelectPlayersViewController.m in Sources */,
 				2F968444187D7C58007EF464 /* Round.m in Sources */,
+				2F625A0C1890122100C98DF3 /* SCBRoundTableViewController.m in Sources */,
 				2FF5BBFA187C292C006BC885 /* SCBStartNewGameViewController.m in Sources */,
 				2F96844D187D7E0F007EF464 /* SCBPlayersPickerViewController.m in Sources */,
 			);
@@ -435,12 +441,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		2FF5BBFE187C36EB006BC885 /* Game_iPad.storyboard */ = {
+		2FF5BBFE187C36EB006BC885 /* NewGame_iPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2FF5BBFF187C36EB006BC885 /* Base */,
 			);
-			name = Game_iPad.storyboard;
+			name = NewGame_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
