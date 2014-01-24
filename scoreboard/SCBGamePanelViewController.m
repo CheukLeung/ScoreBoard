@@ -11,6 +11,7 @@
 #import "SCBPlayersPickerViewController.h"
 #import "SCBScorePickerViewController.h"
 #import "SCBRoundTableViewController.h"
+#import "SCBMainViewController.h"
 #import "Player.h"
 #import "Round.h"
 
@@ -37,6 +38,9 @@
 @end
 
 @implementation SCBGamePanelViewController
+- (IBAction)swipeGestureAction:(UISwipeGestureRecognizer *)sender {
+   [self endGameButtonAction:self];
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -55,6 +59,10 @@
    {
       [self addGameEntry];
    }
+   else
+   {
+      [self setScore];
+   }
    _scorePickerViewController = [self.childViewControllers objectAtIndex:0];
    _roundTableViewController = [self.childViewControllers objectAtIndex:1];
    _winnersViewController = [self.childViewControllers objectAtIndex:2];
@@ -68,15 +76,16 @@
    _roundTableViewController.thisGame = _thisGame;
 }
 
+
 - (void) setDefaultView
 {
    for (NSUInteger i = 0; i < [_players count]; i++)
    {
       Player *playerItem = [_players objectAtIndex:i];
-      UILabel *playerLable = (UILabel *)[self.view viewWithTag:100+i];
+      UILabel *playerLabal = (UILabel *)[self.view viewWithTag:100+i];
       UIImageView *playerImage = (UIImageView *)[self.view viewWithTag:200+i];
       UILabel *playerScore = (UILabel *)[self.view viewWithTag:300+i];
-      [playerLable setText:[playerItem name]];
+      [playerLabal setText:[playerItem name]];
       [playerImage setImage:[UIImage imageWithData:[playerItem photo]]];
       [playerScore setText:@"0"];
    }
@@ -88,6 +97,42 @@
       UILabel *playerScore = (UILabel *)[self.view viewWithTag:300+i];
       [playerLable setText:@""];
       [playerImage setImage:nil];
+      [playerScore setText:@""];
+   }
+}
+
+- (void) setScore
+{
+   NSMutableArray* scoreList = [[NSMutableArray alloc] init];
+   [scoreList addObject:_thisGame.player0];
+   [scoreList addObject:_thisGame.player1];
+   [scoreList addObject:_thisGame.player2];
+   [scoreList addObject:_thisGame.player3];
+   [scoreList addObject:_thisGame.player4];
+   [scoreList addObject:_thisGame.player5];
+   
+   for (NSUInteger i = 0; i < [_players count]; i++)
+   {
+      UILabel *playerScore = (UILabel *)[self.view viewWithTag:300+i];
+      NSInteger score = [[scoreList objectAtIndex:i] integerValue];
+      [playerScore setText:[NSString stringWithFormat:@"%ld", (long)score]];
+      if (score < 0)
+      {
+         playerScore.textColor = [UIColor redColor];
+      }
+      else if (score == 0)
+      {
+         playerScore.textColor = [UIColor blackColor];
+      }
+      else
+      {
+         playerScore.textColor = [UIColor blueColor];
+      }
+   }
+   
+   for (NSUInteger i = [_players count]; i < MaximumNumberOfPlayers; i++)
+   {
+      UILabel *playerScore = (UILabel *)[self.view viewWithTag:300+i];
       [playerScore setText:@""];
    }
 }
@@ -138,9 +183,16 @@
    {
       netGain -= gain/[losers count];
    }
-   NSLog(@"%d get: %d", index, netGain);
+   NSLog(@"%ld get: %ld", (long)index, (long)netGain);
    return netGain;
 }
+
+
+- (void) viewWillAppear:(BOOL)animated {
+   [super viewWillAppear:animated];
+   [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+
 
 #pragma mark - Interaction
 - (IBAction)clearButtonAction:(id)sender {
@@ -160,6 +212,13 @@
                  elements:_nextElements];
 }
 
+- (IBAction)endGameButtonAction:(id)sender {
+   NSMutableArray *navigationArray = [[NSMutableArray alloc] initWithArray: self.navigationController.viewControllers];
+   SCBMainViewController *mainViewController = [navigationArray objectAtIndex:0];
+   [mainViewController reloadData];
+   [self.navigationController popToViewController:mainViewController animated:YES];
+   
+}
 #pragma mark - Core Data access
 /*!
  \description Getter of managedObjectContext.
@@ -204,7 +263,7 @@
                     score: (NSInteger) nextScore
                  elements: (NSInteger) nextElements
 {
-   if ([nextWinners count] == 0 || [nextLosers count] == 0 )
+   if ([nextWinners count] == 0 || [nextLosers count] == 0 || nextGain == 0)
    {
       NSString *message = @"At least one winner and one loser are needed.";
       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No player win or lose"
@@ -244,7 +303,7 @@
       NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
       return;
    }
-   NSLog(@"%d round %d players", [_thisGame.rounds count], [_thisGame.players count]);
+   NSLog(@"%lu round %lu players", (unsigned long)[_thisGame.rounds count], (unsigned long)[_thisGame.players count]);
 
    NSMutableArray *playerArray = [[NSMutableArray alloc] init];
    [playerArray addObject:_thisGame.player0];
@@ -273,9 +332,9 @@
       }
    }
    
-   for (int i = [_players count]; i < MaximumNumberOfPlayers; i++)
+   for (NSInteger i = [_players count]; i < MaximumNumberOfPlayers; i++)
    {
-      NSLog(@"%d", i);
+      NSLog(@"%ld", (long)i);
       UILabel *playerLabel = (UILabel *)[self.view viewWithTag:400 + i];
       [playerLabel setText:@""];
    }

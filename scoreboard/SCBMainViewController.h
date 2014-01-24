@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SCBMainViewProtocol.h"
 #import "Player.h"
-@interface SCBMainViewController : UIViewController
+@interface SCBMainViewController : UIViewController <SCBMainViewProtocol>
+
 
 @property Player *currentPlayer;
+- (void) reloadData;
 @end

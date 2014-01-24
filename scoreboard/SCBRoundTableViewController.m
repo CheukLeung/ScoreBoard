@@ -60,7 +60,7 @@
    static NSString *CellIdentifier = @"RoundCell";
    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier
                                                                 forIndexPath:indexPath];
-   NSLog(@"plaers: %d", [_thisGame.players count]);
+   NSLog(@"plaers: %lu", (unsigned long)[_thisGame.players count]);
    NSMutableArray *roundArray = [NSMutableArray arrayWithArray:[_thisGame.rounds array]];
    NSMutableArray *playerArray = [[NSMutableArray alloc] init];
    Round *roundItem;
@@ -74,7 +74,7 @@
    
    UILabel *roundLabel = (UILabel *)[cell viewWithTag:100];
    
-   [roundLabel setText:[NSString stringWithFormat:@"%d", [_thisGame.rounds count] - indexPath.row]];
+   [roundLabel setText:[NSString stringWithFormat:@"%u", [_thisGame.rounds count] - indexPath.row]];
    for (int i = 0; i < [[_thisGame.players array] count]; i++)
    {
       UILabel *playerLabel = (UILabel *)[cell viewWithTag:200 + i];
@@ -94,9 +94,9 @@
       }
    }
    
-   for (int i = [[_thisGame.players array] count]; i < MaximumNumberOfPlayers; i++)
+   for (NSUInteger i = [[_thisGame.players array] count]; i < MaximumNumberOfPlayers; i++)
    {
-      NSLog(@"%d", i);
+      NSLog(@"%lu", (unsigned long)i);
       UILabel *playerLabel = (UILabel *)[cell viewWithTag:200 + i];
       [playerLabel setText:@""];
       playerLabel.textColor = [UIColor blackColor];

@@ -18,5 +18,6 @@
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 -(NSArray*)getAllPlayersRecords;
+-(NSArray*)getAllGamesRecords;
 
 @end

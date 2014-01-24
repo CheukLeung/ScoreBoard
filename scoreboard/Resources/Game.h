@@ -2,7 +2,7 @@
 //  Game.h
 //  scoreboard
 //
-//  Created by Oscar Leung on 22/01/14.
+//  Created by Oscar Leung on 23/01/14.
 //  Copyright (c) 2014 Cheuk Leung. All rights reserved.
 //
 
@@ -15,8 +15,8 @@
 
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSNumber * player0;
-@property (nonatomic, retain) NSNumber * player2;
 @property (nonatomic, retain) NSNumber * player1;
+@property (nonatomic, retain) NSNumber * player2;
 @property (nonatomic, retain) NSNumber * player3;
 @property (nonatomic, retain) NSNumber * player4;
 @property (nonatomic, retain) NSNumber * player5;

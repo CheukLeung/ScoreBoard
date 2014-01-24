@@ -2,7 +2,7 @@
 //  Player.m
 //  scoreboard
 //
-//  Created by Oscar Leung on 08/01/14.
+//  Created by Oscar Leung on 23/01/14.
 //  Copyright (c) 2014 Cheuk Leung. All rights reserved.
 //
 
@@ -14,8 +14,8 @@
 
 @dynamic name;
 @dynamic photo;
-@dynamic wins;
 @dynamic rounds;
+@dynamic wins;
 @dynamic games;
 
 @end

@@ -8,11 +8,14 @@
 
 #import "SCBMainViewController.h"
 #import "SCBPlayerTableViewController.h"
+#import "SCBGameTableViewController.h"
+#import "SCBGamePanelViewController.h"
 
 @interface SCBMainViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *currentUserImage;
 @property (weak, nonatomic) IBOutlet UILabel *currentUserLabel;
 @property (weak, nonatomic) IBOutlet UIView *playerTableContainer;
+@property SCBGameTableViewController *gametableViewController;
 
 @end
 
@@ -35,7 +38,14 @@
 - (void)viewDidLoad
 {
    [super viewDidLoad];
+   _gametableViewController = [self.childViewControllers objectAtIndex:1];
+   _gametableViewController.mainDelegate = self;
 	// Do any additional setup after loading the view.
+}
+
+- (void) reloadData
+{
+   [_gametableViewController reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,5 +82,13 @@
    }
 }
 
+-(void) startGame : (Game*) game
+{
+   SCBGamePanelViewController *gamePanelViewController = [[UIStoryboard storyboardWithName:@"Game_iPad" bundle:nil] instantiateInitialViewController];
+   
+   [self.navigationController pushViewController:gamePanelViewController animated:YES];
+   gamePanelViewController.players = [NSMutableArray arrayWithArray:[game.players array]];
+   gamePanelViewController.thisGame = game;
+}
 
 @end

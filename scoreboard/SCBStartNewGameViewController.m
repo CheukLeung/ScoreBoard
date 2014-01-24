@@ -8,6 +8,7 @@
 
 #import "SCBStartNewGameViewController.h"
 #import "SCBSelectPlayersViewController.h"
+#import "SCBGamePanelViewController.h"
 @interface SCBStartNewGameViewController ()
 
 @end
@@ -34,6 +35,25 @@
    // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)startGameBtnAction:(id)sender {
+   if ([_players count] < 2)
+   {
+      NSString *message = @"At least two players are needed.";
+      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Not enough player"
+                                                      message:message
+                                                     delegate:nil
+                                            cancelButtonTitle:@"OK"
+                                            otherButtonTitles:nil];
+      [alert show];
+      return;
+   }
+   SCBGamePanelViewController *gameStoryBoardViewController = [[UIStoryboard storyboardWithName:@"Game_iPad" bundle:nil] instantiateInitialViewController];
+   
+   [self.navigationController pushViewController:gameStoryBoardViewController animated:YES];
+   gameStoryBoardViewController.players = _players;
+}
+
+
 #pragma mark - Navigation
 - (void) prepareForSegue :(UIStoryboardSegue *)segue sender:(id)sender{
    if([[segue identifier] isEqualToString:@"startGameSegue"])
@@ -51,6 +71,7 @@
       _players = source.selectedPlayers;
    }
 }
+
 
 
 @end

@@ -2,7 +2,7 @@
 //  Game.m
 //  scoreboard
 //
-//  Created by Oscar Leung on 22/01/14.
+//  Created by Oscar Leung on 23/01/14.
 //  Copyright (c) 2014 Cheuk Leung. All rights reserved.
 //
 
@@ -15,8 +15,8 @@
 
 @dynamic date;
 @dynamic player0;
-@dynamic player2;
 @dynamic player1;
+@dynamic player2;
 @dynamic player3;
 @dynamic player4;
 @dynamic player5;
