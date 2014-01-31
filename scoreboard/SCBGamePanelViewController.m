@@ -11,11 +11,12 @@
 #import "SCBPlayersPickerViewController.h"
 #import "SCBScorePickerViewController.h"
 #import "SCBRoundTableViewController.h"
+#import "SCBTrendGraphViewController.h"
 #import "SCBMainViewController.h"
 #import "Player.h"
 #import "Round.h"
 
-
+#import "Utility.h"
 #import "Constants.h"
 #import "SCBAppDelegate.h"
 
@@ -28,13 +29,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *gainLabel;
 @property NSMutableArray *nextWinners;
 @property NSMutableArray *nextLosers;
-
+@property BOOL oldGame;
 
 @property SCBPlayersPickerViewController *winnersViewController;
 @property SCBPlayersPickerViewController *losersViewController;
 @property SCBScorePickerViewController *scorePickerViewController;
 @property SCBRoundTableViewController *roundTableViewController;
-
+@property SCBTrendGraphViewController *trendGraphViewController;
 @end
 
 @implementation SCBGamePanelViewController
@@ -58,15 +59,18 @@
    if (!_thisGame)
    {
       [self addGameEntry];
+      _oldGame = NO;
    }
    else
    {
+      _oldGame = YES;
       [self setScore];
    }
    _scorePickerViewController = [self.childViewControllers objectAtIndex:0];
    _roundTableViewController = [self.childViewControllers objectAtIndex:1];
    _winnersViewController = [self.childViewControllers objectAtIndex:2];
    _losersViewController = [self.childViewControllers objectAtIndex:3];
+   _trendGraphViewController = [self.childViewControllers objectAtIndex:4];
    _scorePickerViewController.delegate = self;
    _winnersViewController.delegate = self;
    _losersViewController.delegate = self;
@@ -74,6 +78,7 @@
    _winnersViewController.players=_players;
    _losersViewController.players=_players;
    _roundTableViewController.thisGame = _thisGame;
+   _trendGraphViewController.thisGame = _thisGame;
 }
 
 
@@ -86,6 +91,7 @@
       UIImageView *playerImage = (UIImageView *)[self.view viewWithTag:200+i];
       UILabel *playerScore = (UILabel *)[self.view viewWithTag:300+i];
       [playerLabal setText:[playerItem name]];
+      [playerLabal setBackgroundColor:[Utility getColorFromString:[playerItem name]]];
       [playerImage setImage:[UIImage imageWithData:[playerItem photo]]];
       [playerScore setText:@"0"];
    }
@@ -213,6 +219,8 @@
 }
 
 - (IBAction)endGameButtonAction:(id)sender {
+   [_trendGraphViewController.graph removeAllPlots];
+   
    NSMutableArray *navigationArray = [[NSMutableArray alloc] initWithArray: self.navigationController.viewControllers];
    SCBMainViewController *mainViewController = [navigationArray objectAtIndex:0];
    [mainViewController reloadData];
@@ -232,6 +240,39 @@
    SCBAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
    _managedObjectContext = appDelegate.managedObjectContext;
    return _managedObjectContext;
+}
+
+- (void) duplicateGameEntry
+{
+   Game *newGame = [NSEntityDescription insertNewObjectForEntityForName:@"Game"
+                                                 inManagedObjectContext:self.managedObjectContext];;
+   newGame.date = _thisGame.date;
+   newGame.players = _thisGame.players;
+   newGame.player0 = _thisGame.player0;
+   newGame.player1 = _thisGame.player1;
+   newGame.player2 = _thisGame.player2;
+   newGame.player3 = _thisGame.player3;
+   newGame.player4 = _thisGame.player4;
+   newGame.player5 = _thisGame.player5;
+   newGame.rounds = _thisGame.rounds;
+   
+   SCBAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+   NSManagedObjectContext *context = [appDelegate managedObjectContext];
+   [context deleteObject:_thisGame];
+   
+   _thisGame = newGame;
+   
+   NSError * error;
+   if (![self.managedObjectContext save:&error])
+   {
+      NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+      return;
+   }
+   
+   
+   _roundTableViewController.thisGame = _thisGame;
+   _trendGraphViewController.thisGame = _thisGame;
+
 }
 
 - (void) addGameEntry
@@ -273,6 +314,12 @@
                                             otherButtonTitles:nil];
       [alert show];
       return;
+   }
+   
+   if (_oldGame)
+   {
+      [self duplicateGameEntry];
+      _oldGame = NO;
    }
    Round* newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Round"
                                                     inManagedObjectContext:self.managedObjectContext];
@@ -340,6 +387,7 @@
    }
    
    [_roundTableViewController.tableView reloadData];
+   [_trendGraphViewController reloadData];
    [self clearButtonAction: self];
 
 }

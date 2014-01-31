@@ -7,6 +7,8 @@
 //
 
 #import "SCBTrendGraphViewController.h"
+#import "Player.h"
+#import "Round.h"
 
 @interface SCBTrendGraphViewController ()
 @property CPTGraphHostingView* trendGraphView;
@@ -42,21 +44,55 @@
 - (void)viewWillAppear:(BOOL)animated
 {
    [super viewWillAppear:animated];
-   NSMutableArray *data = [NSMutableArray array];
-   [data addObject:[NSValue valueWithCGPoint:CGPointMake(-10, 100)]];
-   [data addObject:[NSValue valueWithCGPoint:CGPointMake(-8, 50)]];
-   [data addObject:[NSValue valueWithCGPoint:CGPointMake(-6, 20)]];
-   [data addObject:[NSValue valueWithCGPoint:CGPointMake(-4, 10)]];
-   [data addObject:[NSValue valueWithCGPoint:CGPointMake(-2, 5)]];
-   [data addObject:[NSValue valueWithCGPoint:CGPointMake(0, 0)]];
-   [data addObject:[NSValue valueWithCGPoint:CGPointMake(2, 4)]];
-   [data addObject:[NSValue valueWithCGPoint:CGPointMake(4, 16)]];
-   [data addObject:[NSValue valueWithCGPoint:CGPointMake(6, 36)]];
-   [data addObject:[NSValue valueWithCGPoint:CGPointMake(8, 64)]];
-   [data addObject:[NSValue valueWithCGPoint:CGPointMake(10, 100)]];
-   
-   self.scatterPlot = [[SCBScatterPlot alloc] initWithHostingView:_graphHostingView andData:data];
-   [self.scatterPlot initialisePlot];
+   NSInteger yMax, yMin;
+   yMax = 0;
+   yMin = 0;
+   _scatterPlots = [[NSMutableArray alloc] init];
+
+   for (int i = 0; i < [_thisGame.players count]; i++)
+   {
+      Player *player = [_thisGame.players objectAtIndex:i];
+      SCBScatterPlot *thisPlot = [[SCBScatterPlot alloc] initWithIdentifier:player.name];
+      NSLog(@"%@", player.name);
+      NSMutableArray *data = [NSMutableArray array];
+      NSInteger tempSum = 0;
+      self.scatterPlot = [[SCBScatterPlot alloc] initWithIdentifier:[NSString stringWithFormat:@"%@", player.name]];
+      [data addObject:[NSValue valueWithCGPoint:CGPointMake(0, 0)]];
+      for (int j = 0; j < [_thisGame.rounds count]; j++)
+      {
+         Round *round = [_thisGame.rounds objectAtIndex:j];
+         if (i == 0) tempSum += [round.player0 integerValue];
+         if (i == 1) tempSum += [round.player1 integerValue];
+         if (i == 2) tempSum += [round.player2 integerValue];
+         if (i == 3) tempSum += [round.player3 integerValue];
+         if (i == 4) tempSum += [round.player4 integerValue];
+         if (i == 5) tempSum += [round.player5 integerValue];
+         if (tempSum > yMax) yMax = tempSum;
+         if (tempSum < yMin) yMin = tempSum;
+         
+         [data addObject:[NSValue valueWithCGPoint:CGPointMake(j+1, tempSum)]];
+
+      }
+      [thisPlot addData:data];
+      [_scatterPlots addObject:thisPlot];
+   }
+
+   self.graph = [[SCBGraph alloc] initWithHostingView:_graphHostingView];
+
+   [self.graph initialisePlotwithMinX:0
+                                 maxX:[_thisGame.rounds count]
+                                 minY:yMin
+                                 maxY:yMax];
+
+   for (int i = 0; i < [_scatterPlots count]; i++)
+   {
+      [self.graph addPlot:[_scatterPlots objectAtIndex:i]];
+   }
+}
+
+- (void)reloadData
+{
+   [self viewWillAppear:YES];
 }
 
 @end

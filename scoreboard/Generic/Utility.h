@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CorePlot-CocoaTouch.h"
 
 @interface Utility : NSObject
 + (UIColor*) getColorFromString: (NSString *)inputString;
++ (CPTColor*) getCPTColorFromString: (NSString *)inputString;
 @end

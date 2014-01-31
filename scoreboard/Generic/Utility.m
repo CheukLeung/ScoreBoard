@@ -19,4 +19,15 @@
                                           alpha: 1];
    return mappedColor;
 }
+
++ (CPTColor*) getCPTColorFromString: (NSString *)inputString
+{
+   NSInteger hash = [inputString hash];
+   hash = hash % 0xFFFFFF;
+   CPTColor *mappedColor = [CPTColor colorWithComponentRed:(double)((hash & 0xFF0000) >> 16) / 0xFF
+                                                     green:(double)((hash & 0x00FF00) >> 8) / 0xFF
+                                                      blue:(double)((hash & 0x0000FF)) / 0xFF
+                                                     alpha: 1];
+   return mappedColor;
+}
 @end

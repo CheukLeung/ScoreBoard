@@ -1,19 +1,19 @@
 //
-//  SCBTrendGraphViewController.h
+//  SCBPlayerTrendViewController.h
 //  scoreboard
 //
-//  Created by Oscar Leung on 24/01/14.
+//  Created by Oscar Leung on 31/01/14.
 //  Copyright (c) 2014 Cheuk Leung. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "Game.h"
+#import "Player.h"
 
 #import "CorePlot-CocoaTouch.h"
 #import "SCBGraph.h"
 #import "SCBScatterPlot.h"
 
-@interface SCBTrendGraphViewController : UIViewController<CPTPlotDataSource> {
+@interface SCBPlayerTrendViewController : UIViewController<CPTPlotDataSource> {
    IBOutlet CPTGraphHostingView *_graphHostingView;
    SCBScatterPlot *_scatterPlot;
    SCBScatterPlot *_scatterPlot2;
@@ -24,8 +24,6 @@
 
 @property (nonatomic, retain) SCBGraph *graph;
 @property (nonatomic, retain) SCBScatterPlot *scatterPlot;
-@property (nonatomic, retain) SCBScatterPlot *scatterPlot2;
-@property (nonatomic, retain) NSMutableArray *scatterPlots;
-@property Game *thisGame;
+@property Player *player;
 -(void) reloadData;
 @end
