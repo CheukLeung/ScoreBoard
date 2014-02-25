@@ -7,6 +7,8 @@
 //
 
 #import "SCBAppDelegate.h"
+#import "Game.h"
+#import "Player.h"
 
 @implementation SCBAppDelegate
 
@@ -125,6 +127,25 @@
    // Returning Fetched Records
    return fetchedRecords;
 }
+
+-(NSArray*)getAllRoundRecords
+{
+   
+   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+   
+   //Setting Entity to be Queried
+   NSEntityDescription *entity = [NSEntityDescription entityForName:@"Round"
+                                             inManagedObjectContext:self.managedObjectContext];
+   [fetchRequest setEntity:entity];
+   NSError* error;
+   
+   // Query on managedObjectContext With Generated fetchRequest
+   NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+   
+   // Returning Fetched Records
+   return fetchedRecords;
+}
+
 
 
 @end

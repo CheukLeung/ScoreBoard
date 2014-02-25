@@ -11,6 +11,7 @@
 #import "SCBGameTableViewController.h"
 #import "SCBGamePanelViewController.h"
 #import "SCBPlayerTrendViewController.h"
+#import "SCBPlayerScoreViewController.h"
 
 @interface SCBMainViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *currentUserImage;
@@ -18,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIView *playerTableContainer;
 @property SCBGameTableViewController *gametableViewController;
 @property SCBPlayerTrendViewController *playTrendViewController;
+@property SCBPlayerScoreViewController *playerScoreViewController;
 
 
 @end
@@ -43,8 +45,10 @@
    [super viewDidLoad];
    _gametableViewController = [self.childViewControllers objectAtIndex:1];
    _playTrendViewController = [self.childViewControllers objectAtIndex:2];
+   _playerScoreViewController = [self.childViewControllers objectAtIndex:3];
    _gametableViewController.mainDelegate = self;
    _playTrendViewController.player = nil;
+   _playerScoreViewController.player = nil;
 	// Do any additional setup after loading the view.
 }
 

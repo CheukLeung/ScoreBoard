@@ -9,9 +9,11 @@
 #import "SCBPlayerTrendViewController.h"
 #import "Game.h"
 #import "Round.h"
+#import "SCBAppDelegate.h"
 
 @interface SCBPlayerTrendViewController ()
 @property CPTGraphHostingView* trendGraphView;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @end
 
 @implementation SCBPlayerTrendViewController
@@ -113,6 +115,20 @@
    [self viewWillAppear:YES];
 }
 
+#pragma mark - Core Data access
+/*!
+ \description Getter of managedObjectContext.
+ \return managedObjectContext.
+ \version
+ */
+- (NSManagedObjectContext*) managedObjectContext {
+   if (_managedObjectContext != nil) {
+      return _managedObjectContext;
+   }
+   SCBAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+   _managedObjectContext = appDelegate.managedObjectContext;
+   return _managedObjectContext;
+}
 
 
 @end

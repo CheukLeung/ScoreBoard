@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2F0B197F1892924A00FE9DD8 /* SCBGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0B197E1892924A00FE9DD8 /* SCBGraph.m */; };
 		2F0B1982189B9A2400FE9DD8 /* SCBPlayerTrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0B1981189B9A2400FE9DD8 /* SCBPlayerTrendViewController.m */; };
+		2F1A9CC7189F89780026894C /* SCBPlayerScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1A9CC6189F89780026894C /* SCBPlayerScoreViewController.m */; };
 		2F61F1C4187C586D007A5BA8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F61F1C3187C586D007A5BA8 /* Constants.m */; };
 		2F625A0C1890122100C98DF3 /* SCBRoundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F625A0B1890122100C98DF3 /* SCBRoundTableViewController.m */; };
 		2F625A15189117AD00C98DF3 /* Game_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F625A13189117AD00C98DF3 /* Game_iPad.storyboard */; };
@@ -66,6 +67,8 @@
 		2F0B197E1892924A00FE9DD8 /* SCBGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCBGraph.m; path = Generic/SCBGraph.m; sourceTree = "<group>"; };
 		2F0B1980189B9A2400FE9DD8 /* SCBPlayerTrendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBPlayerTrendViewController.h; sourceTree = "<group>"; };
 		2F0B1981189B9A2400FE9DD8 /* SCBPlayerTrendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCBPlayerTrendViewController.m; sourceTree = "<group>"; };
+		2F1A9CC5189F89780026894C /* SCBPlayerScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBPlayerScoreViewController.h; sourceTree = "<group>"; };
+		2F1A9CC6189F89780026894C /* SCBPlayerScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCBPlayerScoreViewController.m; sourceTree = "<group>"; };
 		2F61F1C2187C586D007A5BA8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Generic/Constants.h; sourceTree = "<group>"; };
 		2F61F1C3187C586D007A5BA8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = Generic/Constants.m; sourceTree = "<group>"; };
 		2F625A0A1890122100C98DF3 /* SCBRoundTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCBRoundTableViewController.h; sourceTree = "<group>"; };
@@ -378,6 +381,8 @@
 				2FFB377E187EB245000340E5 /* Protocol */,
 				2F83AA2218551B0E006F6CB3 /* SCBAppDelegate.h */,
 				2F83AA2318551B0E006F6CB3 /* SCBAppDelegate.m */,
+				2F1A9CC5189F89780026894C /* SCBPlayerScoreViewController.h */,
+				2F1A9CC6189F89780026894C /* SCBPlayerScoreViewController.m */,
 				2F625A0A1890122100C98DF3 /* SCBRoundTableViewController.h */,
 				2F625A0B1890122100C98DF3 /* SCBRoundTableViewController.m */,
 				2F968454187D9AC9007EF464 /* SCBScorePickerViewController.h */,
@@ -601,6 +606,7 @@
 				2F96843E187D3F04007EF464 /* SCBGamePanelViewController.m in Sources */,
 				2F0B1982189B9A2400FE9DD8 /* SCBPlayerTrendViewController.m in Sources */,
 				2FD6C05D185D0F2A0022C570 /* SCBModel.xcdatamodeld in Sources */,
+				2F1A9CC7189F89780026894C /* SCBPlayerScoreViewController.m in Sources */,
 				2FFB377B187E9E05000340E5 /* Utility.m in Sources */,
 				2FD6C06E185D1EA30022C570 /* SCBPlayerTableViewController.m in Sources */,
 				2F625A1E18915CB800C98DF3 /* Player.m in Sources */,
